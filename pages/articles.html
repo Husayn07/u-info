@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="../src/assets/css/Footer.css" />
     <link rel="stylesheet" href="/src/assets/css/articles-card.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+    </style>
 </head>
 <body>
+     <!-- Header Section -->
      <!-- Header Section -->
      <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="../index.html">MyBlog</a>
+                <a href="../index.html"><img src="../u-info-logo.png"/></a>
             </div>
-            
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <label for="nav-toggle" class="nav-toggle-label">
                 <span></span>
@@ -27,18 +30,19 @@
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="#">Articles</a></li>
+                    <li><a href="./articles.html">Articles</a></li>
                     <li class="dropdown">
                         <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fas fa-laptop-code"></i> Tech</a></li>
-                            <li><a href="#"><i class="fas fa-heartbeat"></i> Health</a></li>
-                            <li><a href="#"><i class="fas fa-chart-line"></i> Finance</a></li>
-                            <li><a href="#"><i class="fas fa-coins"></i> Crypto</a></li>
+                            <li><a href="./tech.html"><i class="fas fa-laptop-code"></i> Tech</a></li>
+                            <li><a href="./health.html"><i class="fas fa-heartbeat"></i> Health</a></li>
+                            <li><a href="./finance.html"><i class="fas fa-chart-line"></i> Finance</a></li>
+                            <li><a href="./crypto.html"><i class="fas fa-coins"></i> Crypto</a></li>
+                            <li><a href="./stories.html"><i class="fas fa-book"></i> Stories</a></li>
                         </ul>
                     </li>
-                    <li><a href="/pages/about.html">About</a></li>
-                    <li><a href="/pages/contact.html">Contact</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
                 </ul>
                 <div class="search">
                     <input type="text" placeholder="Search...">
@@ -110,8 +114,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section about">
-                    <h3>About MyBlog</h3>
-                    <p>MyBlog is a platform for sharing knowledge and ideas about technology, design, and lifestyle.</p>
+                    <h3>About U-Info</h3>
+                    <p>Urban Info is a platform for sharing knowledge and ideas about technology, design, and lifestyle.</p>
                     <div class="socials">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -122,22 +126,20 @@
                 <div class="footer-section links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Articles</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section contact">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-envelope"></i> info@myblog.com</p>
+                    <p><i class="fas fa-envelope"></i> info@u-info.com</p>
                     <p><i class="fas fa-phone"></i> +234 8135-688-302</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Blog Street, Digital City</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 MyBlog. All rights reserved.</p>
+                <p>&copy; 2023 U-Info. All rights reserved.</p>
             </div>
         </div>
     </footer>

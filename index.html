@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urban Info</title>
-    <link rel="stylesheet" href="./src/assets/css/Header.css">
-    <link rel="stylesheet" href="./src/assets/css/Footer.css" />
-    <link rel="stylesheet" href="src/assets/css/Hero-section.css">
+    <link rel="stylesheet" href="../src/assets/css/Header.css">
+    <link rel="stylesheet" href="../src/assets/css/Footer.css" />
+    <link rel="stylesheet" href="../src/assets/css/Hero-section.css">
+    <link rel="shortcut icon" href="/u-info-logo.png" type="image/x-icon">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+    </style>
 </head>
 <body>
      <!-- Header Section -->
      <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="./index.html">U-InfoM<i class="fab fa-</a>
+                <a href="../index.html"><img src="./u-info-logo.png"/></a>
             </div>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <label for="nav-toggle" class="nav-toggle-label">
@@ -30,15 +36,15 @@
                     <li class="dropdown">
                         <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fas fa-laptop-code"></i> Tech</a></li>
-                            <li><a href="#"><i class="fas fa-heartbeat"></i> Health</a></li>
-                            <li><a href="#"><i class="fas fa-chart-line"></i> Finance</a></li>
-                            <li><a href="#"><i class="fas fa-coins"></i> Crypto</a></li>
-                            <li><a href="#"><i class="fas fa-book"></i> Stories</a></li>
+                            <li><a href="./pages/tech.html"><i class="fas fa-laptop-code"></i> Tech</a></li>
+                            <li><a href="./pages/health.html"><i class="fas fa-heartbeat"></i> Health</a></li>
+                            <li><a href="./pages/finance.html"><i class="fas fa-chart-line"></i> Finance</a></li>
+                            <li><a href="./pages/crypto.html"><i class="fas fa-coins"></i> Crypto</a></li>
+                            <li><a href="./pages/stories.html"><i class="fas fa-book"></i> Stories</a></li>
                         </ul>
                     </li>
-                    <li><a href="/pages./about.html">About</a></li>
-                    <li><a href="/pages./contact.html">Contact</a></li>
+                    <li><a href="./pages/about.html">About</a></li>
+                    <li><a href="./pages/contact.html">Contact</a></li>
                 </ul>
                 <div class="search">
                     <input type="text" placeholder="Search...">
@@ -70,12 +76,12 @@
                 </a>
             </div>
             
+                <div class="hero-stats">
                 <div class="stat-item">
                     <span class="stat-number">10K+</span>
                     <span class="stat-label">Articles</span>
                 </div>
-            <!-- <div class="hero-stats">
-                <div class="stat-item">
+                <!-- <div class="stat-item">
                     <span class="stat-number">500+</span>
                     <span class="stat-label">Authors</span>
                 </div>
@@ -98,7 +104,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section about">
-                    <h3>About U-info</h3>
+                    <h3>About U-Info</h3>
                     <p>Urban Info is a platform for sharing knowledge and ideas about technology, design, and lifestyle.</p>
                     <div class="socials">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -113,23 +119,23 @@
                         <li><a href="./index.html">Home</a></li>
                         <li><a href="./pages/articles.html">Articles</a></li>
                         <li><a href="./pages/tech.html">Tech</a></li>
-                        <li><a href="./pages/health">Health</a></li>
-                        <li><a href="./pages/finance">Finance</a></li>
-                        <li><a href="./pages/cypto">Cypto</a></li>
-                        <li><a href="./pages/stories">Stories</a></li>
-                        <li><a href="./pages/about">About</a></li>
-                        <li><a href="./pages/contact">Contact</a></li>
+                        <li><a href="./pages/health.html">Health</a></li>
+                        <li><a href="./pages/finance.html">Finance</a></li>
+                        <li><a href="./pages/cypto.html">Cypto</a></li>
+                        <li><a href="./pages/stories.html">Stories</a></li>
+                        <li><a href="./pages/about.html">About</a></li>
+                        <li><a href="./pages/contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section contact">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-envelope"></i> info@myblog.com</p>
+                    <p><i class="fas fa-envelope"></i> info@u-info.com</p>
                     <p><i class="fas fa-phone"></i> +234 8135-688-302</p>
                     <p><i class="fas fa-map-marker-alt"></i> 123 Blog Street, Digital City</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 MyBlog. All rights reserved.</p>
+                <p>&copy; 2023 U-Info. All rights reserved.</p>
             </div>
         </div>
     </footer>

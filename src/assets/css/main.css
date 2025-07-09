@@ -5,6 +5,8 @@
     color: white;
     text-align: center;
     padding: 100px 20px;
+    position: relative;
+    top: 30px;
 }
 
 .mission-section {
@@ -149,6 +151,9 @@
     color: white;
     text-align: center;
     padding: 100px 20px;
+    position: relative;
+    top: 35px;
+
 }
 
 .contact-main {

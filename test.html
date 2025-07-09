@@ -1,100 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyBlog - Home</title>
-    <style>
-        /* Basic Styling (Customize Later) */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .banner { 
-            height: 400px; 
-            background: #f0f0f0; 
-            position: relative; 
-            overflow: hidden; 
-        }
-        .banner-slide { 
-            position: absolute; 
-            width: 100%; 
-            height: 100%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            background-size: cover; 
-            background-position: center; 
-            opacity: 0; 
-            transition: opacity 1s; 
-        }
-        .banner-slide.active { opacity: 1; }
-        .stories-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-            gap: 20px; 
-            padding: 20px; 
-        }
-        .story-card { 
-            border: 1px solid #ddd; 
-            border-radius: 8px; 
-            overflow: hidden; 
-        }
-        .story-card img { width: 100%; height: 200px; object-fit: cover; }
-        .story-content { padding: 15px; }
-    </style>
+  <meta charset="UTF-8">
+  <title>U-INFO Logo</title>
+  <style>
+    body {
+      background-color: #0a0f12;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .logo {
+      text-align: center;
+      color: white;
+    }
+
+    .brain {
+      stroke: #00e6e6;
+      stroke-width: 2;
+      fill: none;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { stroke-opacity: 0.4; }
+      50% { stroke-opacity: 1; }
+    }
+
+    .title {
+      font-size: 2em;
+      font-family: 'Cursive';
+      color: #00e6e6;
+      margin-top: 10px;
+    }
+
+    .subtitle {
+      font-size: 1em;
+      letter-spacing: 4px;
+      color: #ccc;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { color: #ccc; }
+      50% { color: #00ffff; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Latest News Banner/Slider -->
-    <div class="banner">
-        <div class="banner-slide active" style="background-image: url('news1.jpg');">
-            <div class="slide-content">
-                <h2>Latest News Headline 1</h2>
-                <p>Short excerpt here...</p>
-                <a href="#">Read More</a>
-            </div>
-        </div>
-        <div class="banner-slide" style="background-image: url('news2.jpg');">
-            <div class="slide-content">
-                <h2>Latest News Headline 2</h2>
-                <p>Short excerpt here...</p>
-                <a href="#">Read More</a>
-            </div>
-        </div>
-    </div>
+  <div class="logo">
+    <!-- Hexagon Brain SVG -->
+    <svg width="200" height="200" viewBox="0 0 100 100">
+      <polygon points="50,5 95,27 95,73 50,95 5,73 5,27" stroke="#00e6e6" fill="none" stroke-width="2"/>
+      <!-- Abstract brain-like path -->
+      <path class="brain" d="M30,40 C35,30 50,30 60,40 C70,50 70,60 60,70 C50,80 40,80 30,70 C20,60 20,50 30,40 Z"/>
+    </svg>
 
-    <!-- True-Life Stories Section -->
-    <section class="stories-section">
-        <h2>True-Life Stories</h2>
-        <div class="stories-grid">
-            <div class="story-card">
-                <img src="story1.jpg" alt="Story Image">
-                <div class="story-content">
-                    <h3>Story Title 1</h3>
-                    <p>A gripping real-life experience...</p>
-                    <a href="#">Read Full Story</a>
-                </div>
-            </div>
-            <div class="story-card">
-                <img src="story2.jpg" alt="Story Image">
-                <div class="story-content">
-                    <h3>Story Title 2</h3>
-                    <p>Another inspiring true story...</p>
-                    <a href="#">Read Full Story</a>
-                </div>
-            </div>
-            <!-- More story cards -->
-        </div>
-    </section>
-
-    <script>
-        // Simple Banner Slider (for demo)
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.banner-slide');
-        function cycleSlides() {
-            slides.forEach(slide => slide.classList.remove('active'));
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        setInterval(cycleSlides, 5000); // Change slide every 5 sec
-    </script>
+    <div class="title">U-INFO</div>
+    <div class="subtitle">RELIABLE INFORMATION...</div>
+  </div>
 </body>
 </html>
