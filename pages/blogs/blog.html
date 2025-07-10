@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - MyBlog</title>
+    <link rel="stylesheet" href="/src/assets/css/Header.css">
+    <link rel="stylesheet" href="/src/assets/css/Footer.css">
+    <link rel="stylesheet" href="/src/assets/css/articles-card.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+        
+        /* Additional styles for articles page */
+        .articles-page {
+            margin-top: 50px;
+            padding: 2rem 0;
+        }
+        
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .category-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active {
+            background: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .page-numbers {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .page-btn, .pagination-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .page-btn.active {
+            background: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+        
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+     <!-- Header Section -->
+    <header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/index.html"><img src="/u-info-logo.png" alt="Logo"/></a>
+        </div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="/index.html">Home</a></li>
+
+                <!-- Blog Dropdown -->
+                <li class="dropdown">
+                    <a href="./pages/blogs/blog.html">Blog <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="health.html"><i class="fas fa-heartbeat"></i> Health & Wellness</a></li>
+                        <li><a href="tech.html"><i class="fas fa-laptop-code"></i> Tech & Innovations</a></li>
+                        <li><a href="lifestyle.html"><i class="fas fa-leaf"></i> Lifestyles</a></li>
+                        <li><a href="stories.html"><i class="fas fa-book"></i> Stories</a></li>
+                        <li><a href="vacancy.html"><i class="fas fa-briefcase"></i>Job vacancies</a></li>
+                    </ul>
+                </li>
+
+                <!-- Categories Dropdown -->
+                <li class="dropdown">
+                    <a href="#">News <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../news/news.html"><i class="fas fa-earth"></i> News</a></li>
+                        <li><a href="../news/politics.html"><i class="fas fa-landmark"></i> Politics</a></li>
+                        <li><a href="../news/sports.html"><i class="fas fa-football-ball"></i> Sports</a></li>
+                        <li><a href="../news/entertainment.html"><i class="fas fa-film"></i> Entertainment</a></li>
+                        <li><a href="../news/finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+
+            <!-- Search Box -->
+            <div class="search">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="header-socials">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <!-- Main Content -->
+    <main class="articles-page">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h2>All Articles</h2>
+                <div class="sort-options">
+                    <span>Sort by:</span>
+                    <select id="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="comments">Most Comments</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="tech">Tech & Innvat..</button>
+                <button class="filter-btn" data-category="health">Health & Well..</button>
+                <button class="filter-btn" data-category="lifestyle">Lifestyles</button>
+                <button class="filter-btn" data-category="stories">Stories</button>
+                <button class="filter-btn" data-category="job">Job Vacancy</button>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="articles-grid" id="articles-grid">
+                <!-- Cards will be generated by JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-btn prev" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <div class="page-numbers">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <span class="ellipsis">...</span>
+                    <button class="page-btn">8</button>
+                </div>
+                <button class="pagination-btn next">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+        
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About U-Info</h3>
+                    <p>Urban Info is a platform for sharing knowledge and ideas about technology, design, and lifestyle.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/pages/blogs/blog.html">Blogs</a></li>
+                        <li><a href="/pages/news/news.html">News</a></li>
+                        <li><a href="/pages/blogs/stories.html">Stories</a></li>
+                        <li><a href="/pages/news/politics.html">Politices</a></li>
+                        <li><a href="/pages/about.html">About</a></li>
+                        <li><a href="/pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@u-info.com</p>
+                    <p><i class="fas fa-phone"></i> +234 8135-688-302</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Blog Street, Digital City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 U-Info. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="/src/assets/js/article.js"></script>
+</body>
+</html>

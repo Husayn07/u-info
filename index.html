@@ -17,48 +17,67 @@
 </head>
 <body>
      <!-- Header Section -->
-     <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="../index.html"><img src="./u-info-logo.png"/></a>
-            </div>
-            <input type="checkbox" id="nav-toggle" class="nav-toggle">
-            <label for="nav-toggle" class="nav-toggle-label">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./pages/articles.html">Articles</a></li>
-                    <li class="dropdown">
-                        <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="./pages/tech.html"><i class="fas fa-laptop-code"></i> Tech</a></li>
-                            <li><a href="./pages/health.html"><i class="fas fa-heartbeat"></i> Health</a></li>
-                            <li><a href="./pages/finance.html"><i class="fas fa-chart-line"></i> Finance</a></li>
-                            <li><a href="./pages/crypto.html"><i class="fas fa-coins"></i> Crypto</a></li>
-                            <li><a href="./pages/stories.html"><i class="fas fa-book"></i> Stories</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./pages/about.html">About</a></li>
-                    <li><a href="./pages/contact.html">Contact</a></li>
-                </ul>
-                <div class="search">
-                    <input type="text" placeholder="Search...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-                <div class="header-socials">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </nav>
+    <header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="./index.html"><img src="./u-info-logo.png" alt="Logo"/></a>
         </div>
-    </header>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="../index.html">Home</a></li>
+
+                <!-- Blog Dropdown -->
+                <li class="dropdown">
+                    <a href="./pages/blogs/blog.html">Blog <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./pages/blogs/health.html"><i class="fas fa-heartbeat"></i> Health & Wellness</a></li>
+                        <li><a href="./pages/blogs/tech.html"><i class="fas fa-laptop-code"></i> Tech & Innovations</a></li>
+                        <li><a href="./pages/blogs/lifestyle.html"><i class="fas fa-leaf"></i> Lifestyles</a></li>
+                        <li><a href="./pages/blogs/stories.html"><i class="fas fa-book"></i> Stories</a></li>
+                        <li><a href="./pages/blogs/vacancy.html"><i class="fas fa-briefcase"></i>Job vacancies</a></li>
+                    </ul>
+                </li>
+
+                <!-- Categories Dropdown -->
+                <li class="dropdown">
+                    <a href="#">News <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./pages/news/news.html"><i class="fas fa-earth"></i> News</a></li>
+                        <li><a href="./pages/news/politics.html"><i class="fas fa-landmark"></i> Politics</a></li>
+                        <li><a href="./pages/news/sports.html"><i class="fas fa-football-ball"></i> Sports</a></li>
+                        <li><a href="./pages/news/entertainment.html"><i class="fas fa-film"></i> Entertainment</a></li>
+                        <li><a href="./pages/news/finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/contact.html">Contact</a></li>
+            </ul>
+
+            <!-- Search Box -->
+            <div class="search">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="header-socials">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </nav>
+    </div>
+</header>
+
 
  <!-- Hero Section -->
  <section class="hero-section">
@@ -70,7 +89,7 @@
             <p class="hero-subtitle">Join our community of thinkers and creators exploring technology, design, and innovation</p>
             
             <div class="hero-cta">
-                <a href="/pages/articles.html" class="btn btn-primary">Start Reading</a>
+                <a href="/pages/blogs/stories.html" class="btn btn-primary">Start Reading</a>
                 <a href="#" class="btn btn-secondary">
                     <i class="fas fa-play"></i> Watch Video
                 </a>
@@ -117,12 +136,10 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="./index.html">Home</a></li>
-                        <li><a href="./pages/articles.html">Articles</a></li>
-                        <li><a href="./pages/tech.html">Tech</a></li>
-                        <li><a href="./pages/health.html">Health</a></li>
-                        <li><a href="./pages/finance.html">Finance</a></li>
-                        <li><a href="./pages/cypto.html">Cypto</a></li>
-                        <li><a href="./pages/stories.html">Stories</a></li>
+                        <li><a href="./pages/blogs/blog.html">Blogs</a></li>
+                        <li><a href="./pages/news/news.html">News</a></li>
+                        <li><a href="./pages/blogs/stories.html">Stories</a></li>
+                        <li><a href="./pages/news/politics.html">Politices</a></li>
                         <li><a href="./pages/about.html">About</a></li>
                         <li><a href="./pages/contact.html">Contact</a></li>
                     </ul>
