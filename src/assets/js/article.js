@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updatePagination();
     }
 
-    // Generate article cards
+    // Generate article cards with links to reader.html
     function generateArticleCard(article) {
         const categoryClass = article.category.toLowerCase();
         const categoryName = categoryClass.charAt(0).toUpperCase() + categoryClass.slice(1);
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="category-badge ${categoryClass}">${categoryName}</span>
                 </div>
                 <div class="article-content">
-                    <h2><a href="article.html?id=${article.id}">${article.title}</a></h2>
+                    <h2><a href="./reader.html?id=${article.id}">${article.title}</a></h2>
                     <p class="excerpt">${article.excerpt}</p>
                     <div class="article-meta">
                         <img src="${article.author.avatar}" alt="${article.author.name}" class="author-avatar">
