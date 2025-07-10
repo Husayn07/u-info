@@ -86,67 +86,67 @@
     </style>
 </head>
 <body>
-     <!-- Header Section -->
+    <!-- Header Section -->
     <header class="header">
-    <div class="container">
-        <div class="logo">
-            <a href="/index.html"><img src="/u-info-logo.png" alt="Logo"/></a>
+        <div class="container">
+            <div class="logo">
+                <a href="/index.html"><img src="/u-info-logo.png" alt="Logo"/></a>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="/index.html">Home</a></li>
+
+                    <!-- Blog Dropdown -->
+                    <li class="dropdown">
+                        <a href="./pages/blogs/blog.html">Blog <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="health.html"><i class="fas fa-heartbeat"></i> Health & Wellness</a></li>
+                            <li><a href="tech.html"><i class="fas fa-laptop-code"></i> Tech & Innovations</a></li>
+                            <li><a href="lifestyle.html"><i class="fas fa-leaf"></i> Lifestyles</a></li>
+                            <li><a href="stories.html"><i class="fas fa-book"></i> Stories</a></li>
+                            <li><a href="vacancy.html"><i class="fas fa-briefcase"></i>Job vacancies</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Categories Dropdown -->
+                    <li class="dropdown">
+                        <a href="#">News <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../news/news.html"><i class="fas fa-earth"></i> News</a></li>
+                            <li><a href="../news/politics.html"><i class="fas fa-landmark"></i> Politics</a></li>
+                            <li><a href="../news/sports.html"><i class="fas fa-football-ball"></i> Sports</a></li>
+                            <li><a href="../news/entertainment.html"><i class="fas fa-film"></i> Entertainment</a></li>
+                            <li><a href="../news/finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
+                </ul>
+
+                <!-- Search Box -->
+                <div class="search">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="header-socials">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </nav>
         </div>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="nav-toggle-label">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="/index.html">Home</a></li>
-
-                <!-- Blog Dropdown -->
-                <li class="dropdown">
-                    <a href="./pages/blogs/blog.html">Blog <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="health.html"><i class="fas fa-heartbeat"></i> Health & Wellness</a></li>
-                        <li><a href="tech.html"><i class="fas fa-laptop-code"></i> Tech & Innovations</a></li>
-                        <li><a href="lifestyle.html"><i class="fas fa-leaf"></i> Lifestyles</a></li>
-                        <li><a href="stories.html"><i class="fas fa-book"></i> Stories</a></li>
-                        <li><a href="vacancy.html"><i class="fas fa-briefcase"></i>Job vacancies</a></li>
-                    </ul>
-                </li>
-
-                <!-- Categories Dropdown -->
-                <li class="dropdown">
-                    <a href="#">News <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../news/news.html"><i class="fas fa-earth"></i> News</a></li>
-                        <li><a href="../news/politics.html"><i class="fas fa-landmark"></i> Politics</a></li>
-                        <li><a href="../news/sports.html"><i class="fas fa-football-ball"></i> Sports</a></li>
-                        <li><a href="../news/entertainment.html"><i class="fas fa-film"></i> Entertainment</a></li>
-                        <li><a href="../news/finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="/pages/about.html">About</a></li>
-                <li><a href="/pages/contact.html">Contact</a></li>
-            </ul>
-
-            <!-- Search Box -->
-            <div class="search">
-                <input type="text" placeholder="Search...">
-                <button><i class="fas fa-search"></i></button>
-            </div>
-
-            <!-- Social Media Icons -->
-            <div class="header-socials">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </nav>
-    </div>
-</header>
+    </header>
 
     <!-- Main Content -->
     <main class="articles-page">
