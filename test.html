@@ -1,62 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>upabase + Netlify Demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
-        .post-card {
-            margin-bottom: 20px;
-            transition: transform 0.2s;
-        }
-        .post-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 200px;
-        }
-        .spinner {
-            width: 3rem;
-            height: 3rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Supabase + Netlify Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+    .post-card {
+      margin-bottom: 20px;
+      transition: transform 0.2s;
+    }
+    .post-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="my-4 text-center">Blog Posts from Supabase</h1>
-        
-        <div id="loading" class="loading">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-        
-        <div id="posts-container" class="row"></div>
-        
-        <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
+  <div class="container">
+    <h1 class="my-4 text-center">Blog Posts from Supabase</h1>
+
+    <div id="loading" class="loading">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
 
- <!-- Load Supabase first -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
-    <!-- Initialize Supabase immediately -->
-    <script>
-        // Initialize Supabase in the global scope
-            const supabaseUrl = 'https://lfdcezmiiqnmfajlrcum.supabase.co';
-            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmZGNlem1paXFubWZhamxyY3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIyMjI5NDAsImV4cCI6MjA2Nzc5ODk0MH0.Mjn8qWWxonCwjE3pWNLElSADXZ4I3iyCdFv9l2KTSRY';
-            const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-    </script>
-    
-    <!-- Then load your app.js -->
-    <script src="app.js"></script>
+    <div id="posts-container" class="row"></div>
+
+    <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
+  </div>
+
+
+  <!-- ✅ Your App Script with Correct v2 Initialization -->
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7/+esm';
+
+    // ✅ Setup Supabase
+    const supabaseUrl = 'https://lfdcezmiiqnmfajlrcum.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmZGNlem1paXFubWZhamxyY3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIyMjI5NDAsImV4cCI6MjA2Nzc5ODk0MH0.Mjn8qWWxonCwjE3pWNLElSADXZ4I3iyCdFv9l2KTSRY'; // Shortened for security
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    // DOM Elements
+    const postsContainer = document.getElementById('posts-container');
+    const loadingElement = document.getElementById('loading');
+    const errorElement = document.getElementById('error-message');
+
+    // Fetch and render posts
+    async function fetchPosts() {
+      try {
+        loadingElement.classList.remove('d-none');
+        postsContainer.innerHTML = '';
+        errorElement.classList.add('d-none');
+
+        const { data: posts, error } = await supabase
+          .from('posts')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        if (posts.length > 0) {
+          renderPosts(posts);
+        } else {
+          postsContainer.innerHTML = '<p class="text-center">No posts found.</p>';
+        }
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+        errorElement.textContent = `Error loading posts: ${error.message}`;
+        errorElement.classList.remove('d-none');
+      } finally {
+        loadingElement.classList.add('d-none');
+      }
+    }
+
+    // Render posts
+    function renderPosts(posts) {
+      postsContainer.innerHTML = posts.map(post => `
+        <div class="col-md-4">
+          <div class="card post-card">
+            ${post.image_url ? `<img src="${post.image_url}" class="card-img-top" alt="${post.title}">` : ''}
+            <div class="card-body">
+              <h5 class="card-title">${post.title}</h5>
+              <p class="card-text">${post.content.substring(0, 100)}...</p>
+              <small class="text-muted">Posted on ${new Date(post.created_at).toLocaleDateString()}</small>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchPosts);
+  </script>
 </body>
 </html>
