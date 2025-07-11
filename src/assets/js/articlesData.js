@@ -73,52 +73,52 @@ export const articlesData = [
         `
     },
     {
-  "id": 3,
-  "title": "The Man with the Wooden Spoon",
-  "excerpt": "A simple act of kindness during a Lagos traffic jam becomes a life-altering moment for two strangers. Sometimes, all it takes is a wooden spoon.",
-  "category": "stories",
-  "imageUrl": "https://images.unsplash.com/photo-1582727461540-0ef20ef23f4e?auto=format&fit=crop&w=1500&q=80",
-  "author": {
-    "name": "Husayn Taiwo",
-    "avatar": "/blank-profile-picture-male.JPG",
-    "bio": "A Biochemist"
-  },
-  "date": "2025-07-10",
-  "readingTime": "6 min read",
-  "views": 3800,
-  "comments": 15,
-  "content": `
-    <h2>The Man with the Wooden Spoon</h2>
-    <p>In the chaos of a Wednesday evening in Lagos, where every honk sounds like war and every danfo driver behaves like a stuntman, Bisi sat inside her Uber, frustrated. Her phone battery was at 4%, the AC had just stopped working, and she was already late for the interview that could change her life.</p>
+    "id": 3,
+    "title": "The Man with the Wooden Spoon",
+    "excerpt": "A simple act of kindness during a Lagos traffic jam becomes a life-altering moment for two strangers. Sometimes, all it takes is a wooden spoon.",
+    "category": "stories",
+    "imageUrl": "https://images.unsplash.com/photo-1582727461540-0ef20ef23f4e?auto=format&fit=crop&w=1500&q=80",
+    "author": {
+        "name": "Husayn Taiwo",
+        "avatar": "/blank-profile-picture-male.JPG",
+        "bio": "A Biochemist"
+    },
+    "date": "2025-07-10",
+    "readingTime": "6 min read",
+    "views": 3800,
+    "comments": 15,
+    "content": `
+        <h2>The Man with the Wooden Spoon</h2>
+        <p>In the chaos of a Wednesday evening in Lagos, where every honk sounds like war and every danfo driver behaves like a stuntman, Bisi sat inside her Uber, frustrated. Her phone battery was at 4%, the AC had just stopped working, and she was already late for the interview that could change her life.</p>
 
-    <p>She sighed and looked out the window, her eyes catching a street hawker. Not selling drinks or gala — but <em>wooden spoons</em>. Hundreds of them, tightly packed in a plastic basket. A strange thing to hawk in traffic.</p>
+        <p>She sighed and looked out the window, her eyes catching a street hawker. Not selling drinks or gala — but <em>wooden spoons</em>. Hundreds of them, tightly packed in a plastic basket. A strange thing to hawk in traffic.</p>
 
-    <p>The hawker, a man probably in his late forties, wasn’t shouting prices or aggressively waving his wares. He walked calmly from window to window, holding up his spoons like they were relics from a shrine.</p>
+        <p>The hawker, a man probably in his late forties, wasn’t shouting prices or aggressively waving his wares. He walked calmly from window to window, holding up his spoons like they were relics from a shrine.</p>
 
-    <p>When he got to her car, he simply said, “Sister, I made these myself.”</p>
+        <p>When he got to her car, he simply said, “Sister, I made these myself.”</p>
 
-    <p>There was something in the way he said it. Not pity. Not pressure. Just pride.</p>
+        <p>There was something in the way he said it. Not pity. Not pressure. Just pride.</p>
 
-    <p>Bisi didn’t need a spoon. But something made her roll down her window and hand him ₦500 for one. He smiled, placed the smooth, polished spoon in her hand, and said, “Thank you. You’ve bought more than wood.”</p>
+        <p>Bisi didn’t need a spoon. But something made her roll down her window and hand him ₦500 for one. He smiled, placed the smooth, polished spoon in her hand, and said, “Thank you. You’ve bought more than wood.”</p>
 
-    <p>The car moved a few meters. She didn’t get the job. But she got something else.</p>
+        <p>The car moved a few meters. She didn’t get the job. But she got something else.</p>
 
-    <p>The interviewer, a stern-looking woman with tribal marks and tired eyes, noticed the spoon sticking out of her bag.</p>
+        <p>The interviewer, a stern-looking woman with tribal marks and tired eyes, noticed the spoon sticking out of her bag.</p>
 
-    <p>“You cook?” the woman asked.</p>
+        <p>“You cook?” the woman asked.</p>
 
-    <p>“No,” Bisi replied honestly, “I met a man in traffic today who carved this. His dignity… reminded me of why I want to do honest work.”</p>
+        <p>“No,” Bisi replied honestly, “I met a man in traffic today who carved this. His dignity… reminded me of why I want to do honest work.”</p>
 
-    <p>The woman paused. Then smiled. “We need people like you. Come back next week — for a different role.”</p>
+        <p>The woman paused. Then smiled. “We need people like you. Come back next week — for a different role.”</p>
 
-    <p>Bisi walked out of the building knowing one thing: the world didn’t give you what you planned for. Sometimes, it gave you what you <strong>paid forward</strong>.</p>
+        <p>Bisi walked out of the building knowing one thing: the world didn’t give you what you planned for. Sometimes, it gave you what you <strong>paid forward</strong>.</p>
 
-    <p>And back in traffic, the man with the wooden spoon walked past another car window, unaware that he had just opened a door that wasn’t even his to walk through.</p>
+        <p>And back in traffic, the man with the wooden spoon walked past another car window, unaware that he had just opened a door that wasn’t even his to walk through.</p>
 
-    <h3>Moral of the Story:</h3>
-    <p>The smallest gestures often plant the biggest seeds. Dignity in your craft, no matter how simple, can ripple into lives you may never see again.</p>
-  `
-}
+        <h3>Moral of the Story:</h3>
+        <p>The smallest gestures often plant the biggest seeds. Dignity in your craft, no matter how simple, can ripple into lives you may never see again.</p>
+    `
+    }
 
     // Add more articles as needed
 ];
