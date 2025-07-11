@@ -305,4 +305,11 @@ body {
         padding: 20px;
         background: rgba(0, 0, 0, 0.7);
     }
+    
+    .hero-section .container {
+    position: relative;
+    top: -70px;
+    z-index: 3;
+    width: 100%;
+}
 }
