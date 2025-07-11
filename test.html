@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supabase + Netlify Demo</title>
+    <title>upabase + Netlify Demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -45,8 +45,19 @@
         <div id="error-message" class="alert alert-danger d-none" role="alert"></div>
     </div>
 
-    <!-- Include Supabase JS -->
+ <!-- Load Supabase first -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Initialize Supabase immediately -->
+    <script>
+        // Initialize Supabase in the global scope
+        window.supabase = supabase.createClient(
+            'https://your-project-ref.supabase.co',
+            'your-anon-public-key'
+        );
+    </script>
+    
+    <!-- Then load your app.js -->
     <script src="app.js"></script>
 </body>
 </html>

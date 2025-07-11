@@ -8,15 +8,13 @@ const postsContainer = document.getElementById('posts-container');
 const loadingElement = document.getElementById('loading');
 const errorElement = document.getElementById('error-message');
 
-// Fetch posts from Supabase
 async function fetchPosts() {
     try {
-        // Show loading state
         loadingElement.classList.remove('d-none');
         postsContainer.innerHTML = '';
         errorElement.classList.add('d-none');
         
-        // Fetch data from Supabase
+        // Use the globally available supabase client
         const { data: posts, error } = await supabase
             .from('posts')
             .select('*')
@@ -24,7 +22,6 @@ async function fetchPosts() {
         
         if (error) throw error;
         
-        // Display posts
         if (posts && posts.length > 0) {
             renderPosts(posts);
         } else {
@@ -57,5 +54,4 @@ function renderPosts(posts) {
     `).join('');
 }
 
-// Initialize the page
 document.addEventListener('DOMContentLoaded', fetchPosts);
