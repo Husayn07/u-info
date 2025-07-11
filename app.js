@@ -1,7 +1,5 @@
 // Initialize Supabase client
-const supabaseUrl = 'https://lfdcezmiiqnmfajlrcum.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmZGNlem1paXFubWZhamxyY3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIyMjI5NDAsImV4cCI6MjA2Nzc5ODk0MH0.Mjn8qWWxonCwjE3pWNLElSADXZ4I3iyCdFv9l2KTSRY';
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
 
 // DOM elements
 const postsContainer = document.getElementById('posts-container');
