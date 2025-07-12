@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - urban-infomation</title>
-    <link rel="stylesheet" href="../src/assets/css/Header.css">
-    <link rel="stylesheet" href="../src/assets/css/Footer.css" />
+    <link rel="stylesheet" href="/src/assets/css/Header.css">
+    <link rel="stylesheet" href="/src/assets/css/Footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../src/assets/css/main.css">
+    <link rel="stylesheet" href="/src/assets/css/main.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
     </style>
 </head>
 <body>
-    <!-- Header (same as your main page) -->
      <!-- Header Section -->
      <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="../index.html"><img src="../u-info-logo.png"/></a>
+                <a href="/index.html"><img src="/u-info-logo.png"/></a>
             </div>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <label for="nav-toggle" class="nav-toggle-label">
@@ -27,35 +26,54 @@
                 <span></span>
             </label>
             
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="./articles.html">Articles</a></li>
-                    <li class="dropdown">
-                        <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="./tech.html"><i class="fas fa-laptop-code"></i> Tech</a></li>
-                            <li><a href="./health.html"><i class="fas fa-heartbeat"></i> Health</a></li>
-                            <li><a href="./finance.html"><i class="fas fa-chart-line"></i> Finance</a></li>
-                            <li><a href="./crypto.html"><i class="fas fa-coins"></i> Crypto</a></li>
-                            <li><a href="./stories.html"><i class="fas fa-book"></i> Stories</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
-                </ul>
-                <div class="search">
-                    <input type="text" placeholder="Search...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-                <div class="header-socials">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </nav>
-        </div>
+<nav class="nav">
+    <ul class="nav-list">
+        <li><a href="/index.html">Home</a></li>
+        
+        <!-- Blog Dropdown -->
+        <li class="dropdown">
+            <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="/pages/blogs/blog.html"><i class="fas fa-users"></i> Blog</a></li>
+                <li><a href="/pages/blogs/health.html"><i class="fas fa-heartbeat"></i> Health & Wellness</a></li>
+                <li><a href="/pages/blogs/tech.html"><i class="fas fa-laptop-code"></i> Tech & Innovations</a></li>
+                <li><a href="/pages/blogs/lifestyle.html"><i class="fas fa-leaf"></i> Lifestyles</a></li>
+                <li><a href="/pages/blogs/stories.html"><i class="fas fa-book"></i> Stories</a></li>
+                <li><a href="/pages/blogs/vacancy.html"><i class="fas fa-briefcase"></i>Job vacancies</a></li>
+            </ul>
+        </li>
+        
+        <!-- Categories Dropdown -->
+        <li class="dropdown">
+            <a href="#">News <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="news.html"><i class="fas fa-earth"></i> News</a></li>
+                <li><a href="politics.html"><i class="fas fa-landmark"></i> Politics</a></li>
+                <li><a href="sports.html"><i class="fas fa-football-ball"></i> Sports</a></li>
+                <li><a href="entertainment.html"><i class="fas fa-film"></i> Entertainment</a></li>
+                <li><a href="finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a></li>
+            </ul>
+        </li>
+        
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="/pages/contact.html">Contact</a></li>
+    </ul>
+    
+    <!-- Search Box -->
+    <div class="search">
+        <input type="text" placeholder="Search...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+    
+    <!-- Social Media Icons -->
+    <div class="header-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+</nav>      
+</div>
     </header>
 
 

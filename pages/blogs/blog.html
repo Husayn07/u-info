@@ -344,20 +344,12 @@
                 `;
             }
             
-            document.querySelectorAll('.page-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    currentPage = parseInt(btn.dataset.page);
-                    renderArticles();
-                    updatePagination();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            });
-        }
-
-        // Update pagination controls
-        function updatePagination() {
-            prevBtn.disabled = currentPage === 1;
-            nextBtn.disabled = currentPage === totalPages;
+            document.querySelectorAll('.page-btn'���L�Bw��]at�Yu����7�����d�N��z�����|��:����0r�yrD�;��=�d� ����zE
+_#ג�GISs�Hv!�{=�R}\;&ɑ
+:3���%ஔ+1�?J�?�eS�nu�>�̐oI�����,=z[�Â^��@���������y�7�[؁N���݈U1���	%������LFa�t�9��FT��=�-)�O�a0��������p=���頸c��W�v�2k����O�;q���U��i�=:�tf�3־I���[��W�6*�u��J
+u�����@��gw9�XJM�l����bN���_�$3<�n|_���iU��!%,�~��������|�A�l�W˱�f�?�e=���J��s��T��Ia/��5O�����"���7i+Hwwe�þ]pK��p��ɢF?��l��?l^2�^�h�����
+Ag�v^S�Xҩ�UX[�����!6i�Z"����5G�i�����L�+1w$�/���
+f1;
             
             document.querySelectorAll('.page-btn').forEach(btn => {
                 btn.classList.toggle('active', parseInt(btn.dataset.page) === currentPage);

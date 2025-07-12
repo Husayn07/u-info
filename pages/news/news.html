@@ -3,94 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles - MyBlog</title>
-    <link rel="stylesheet" href="../src/assets/css/Header.css">
-    <link rel="stylesheet" href="../src/assets/css/Footer.css">
-    <link rel="stylesheet" href="../src/assets/css/articles-card.css">
+    <title>News - reliability our priority </title>
+    <link rel="stylesheet" href="/src/assets/css/Header.css">
+    <link rel="stylesheet" href="/src/assets/css/Footer.css">
+    <link rel="stylesheet" href="/src/assets/css/articles-card.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
-        
-        /* Additional styles for articles page */
-        .articles-page {
-            margin-top: 50px;
-            padding: 2rem 0;
-        }
-        
-        .page-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .category-filters {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            background: white;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn.active {
-            background: #0066cc;
-            color: white;
-            border-color: #0066cc;
-        }
-        
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .page-numbers {
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        .page-btn, .pagination-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid #ddd;
-            background: white;
-            cursor: pointer;
-        }
-        
-        .page-btn.active {
-            background: #0066cc;
-            color: white;
-            border-color: #0066cc;
-        }
-        
-        .pagination-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-    </style>
+    <link rel="stylesheet" href="/src/assets/css/main.css">
+
 </head>
 <body>
     <!-- Header Section -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="../index.html"><img src="../u-info-logo.png"/></a>
+                <a href="/index.html"><img src="/u-info-logo.png" alt="Logo"/></a>
             </div>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <label for="nav-toggle" class="nav-toggle-label">
@@ -98,28 +24,47 @@
                 <span></span>
                 <span></span>
             </label>
-            
+
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="./articles.html">Articles</a></li>
+                    <li><a href="/index.html">Home</a></li>
+
+                    <!-- Blog Dropdown -->
                     <li class="dropdown">
-                        <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
+                        <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="./tech.html"><i class="fas fa-laptop-code"></i> Tech</a></li>
-                            <li><a href="./health.html"><i class="fas fa-heartbeat"></i> Health</a></li>
-                            <li><a href="./finance.html"><i class="fas fa-chart-line"></i> Finance</a></li>
-                            <li><a href="./crypto.html"><i class="fas fa-coins"></i> Crypto</a></li>
-                            <li><a href="./stories.html"><i class="fas fa-book"></i> Stories</a></li>
+                            <li><a href="/pages/blogs/blog.html"><i class="fas fa-users"></i> Blog</a></li>
+                            <li><a href="/pages/blogs/health.html"><i class="fas fa-heartbeat"></i> Health & Wellness</a></li>
+                            <li><a href="/pages/blogs/tech.html"><i class="fas fa-laptop-code"></i> Tech & Innovations</a></li>
+                            <li><a href="/pages/blogs/lifestyle.html"><i class="fas fa-leaf"></i> Lifestyles</a></li>
+                            <li><a href="/pages/blogs/stories.html"><i class="fas fa-book"></i> Stories</a></li>
+                            <li><a href="/pages/blogs/vacancy.html"><i class="fas fa-briefcase"></i>Job vacancies</a></li>
                         </ul>
                     </li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+
+                    <!-- Categories Dropdown -->
+                    <li class="dropdown">
+                        <a href="#">News <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="news.html"><i class="fas fa-earth"></i> News</a></li>
+                            <li><a href="politics.html"><i class="fas fa-landmark"></i> Politics</a></li>
+                            <li><a href="sports.html"><i class="fas fa-football-ball"></i> Sports</a></li>
+                            <li><a href="entertainment.html"><i class="fas fa-film"></i> Entertainment</a></li>
+                            <li><a href="finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
                 </ul>
+
+                <!-- Search Box -->
                 <div class="search">
                     <input type="text" placeholder="Search...">
                     <button><i class="fas fa-search"></i></button>
                 </div>
+
+                <!-- Social Media Icons -->
                 <div class="header-socials">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -135,7 +80,7 @@
         <div class="container">
             <!-- Page Header -->
             <div class="page-header">
-                <h2>All Articles</h2>
+                <h2>News - Trends</h2>
                 <div class="sort-options">
                     <span>Sort by:</span>
                     <select id="sort-select">
@@ -149,16 +94,28 @@
 
             <!-- Category Filters -->
             <div class="category-filters">
-                <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="tech">Tech</button>
-                <button class="filter-btn" data-category="health">Health</button>
+                <button class="filter-btn active" data-category="news">News</button>
+                <button class="filter-btn" data-category="politics">Politics</button>
                 <button class="filter-btn" data-category="finance">Finance</button>
-                <button class="filter-btn" data-category="crypto">Crypto</button>
+                <button class="filter-btn" data-category="sports">Sports</button>
+                <button class="filter-btn" data-category="entertainment">Entertainments</button>
+            </div>
+
+            <!-- Loading state -->
+            <div id="loading-state" class="loading">
+                <div class="spinner"></div>
+                <p>Loading News pages....</p>
             </div>
 
             <!-- Articles Grid -->
             <div class="articles-grid" id="articles-grid">
                 <!-- Cards will be generated by JavaScript -->
+            </div>
+
+            <!-- Error state (hidden by default) -->
+            <div id="error-state" class="error-message" style="display: none;">
+                <p>Failed to load News. Please try again later.</p>
+                <button id="retry-button">Retry</button>
             </div>
 
             <!-- Pagination -->
@@ -197,16 +154,20 @@
                 <div class="footer-section links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="articles.html">Articles</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/pages/blogs/blog.html">Blogs</a></li>
+                        <li><a href="/pages/news/news.html">News</a></li>
+                        <li><a href="/pages/blogs/stories.html">Stories</a></li>
+                        <li><a href="/pages/news/politics.html">Politices</a></li>
+                        <li><a href="/pages/about.html">About</a></li>
+                        <li><a href="/pages/contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section contact">
                     <h3>Contact Us</h3>
                     <p><i class="fas fa-envelope"></i> info@u-info.com</p>
                     <p><i class="fas fa-phone"></i> +234 8135-688-302</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Blog Street, Digital City</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -214,7 +175,236 @@
             </div>
         </div>
     </footer>
+    <script type="module">
+        // Import Supabase client
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-    <script type="module" src="../src/assets/js/article.js"></script>
+        // Initialize Supabase client
+        const supabaseUrl = 'https://lfdcezmiiqnmfajlrcum.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmZGNlem1paXFubWZhamxyY3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIyMjI5NDAsImV4cCI6MjA2Nzc5ODk0MH0.Mjn8qWWxonCwjE3pWNLElSADXZ4I3iyCdFv9l2KTSRY'; 
+        const supabase = createClient(supabaseUrl, supabaseKey);
+
+        // DOM Elements
+        const articlesGrid = document.getElementById('articles-grid');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const sortSelect = document.getElementById('sort-select');
+        const prevBtn = document.querySelector('.pagination-btn.prev');
+        const nextBtn = document.querySelector('.pagination-btn.next');
+        const pageBtnsContainer = document.querySelector('.page-numbers');
+        const loadingState = document.getElementById('loading-state');
+        const errorState = document.getElementById('error-state');
+        const retryButton = document.getElementById('retry-button');
+
+        // State variables
+        let currentPage = 1;
+        const articlesPerPage = 6;
+        let totalPages = 0;
+        let filteredArticles = [];
+
+        // Show loading state
+        function showLoading() {
+            loadingState.style.display = 'flex';
+            articlesGrid.style.display = 'none';
+            errorState.style.display = 'none';
+        }
+
+        // Show content
+        function showContent() {
+            loadingState.style.display = 'none';
+            articlesGrid.style.display = 'grid';
+            errorState.style.display = 'none';
+        }
+
+        // Show error state
+        function showError(message) {
+            loadingState.style.display = 'none';
+            articlesGrid.style.display = 'none';
+            errorState.style.display = 'block';
+            errorState.querySelector('p').textContent = message;
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Generate article card HTML
+        function generateArticleCard(article) {
+            const categoryClass = article.category.toLowerCase();
+            const categoryName = article.category.charAt(0).toUpperCase() + article.category.slice(1);
+            
+            return `
+                <article class="article-card" data-category="${categoryClass}" data-date="${article.created_at}">
+                    <div class="article-image">
+                        <img src="${article.image_url}" alt="${article.title}" loading="lazy">
+                        <span class="category-badge ${categoryClass}">${categoryName}</span>
+                    </div>
+                    <div class="article-content">
+                        <h2><a href="./reader.html?id=${article.id}">${article.title}</a></h2>
+                        <p class="excerpt">${article.excerpt}</p>
+                        <div class="article-meta">
+                            <img src="${article.author_avatar}" alt="${article.author_name}" class="author-avatar">
+                            <div class="meta-details">
+                                <span class="author">${article.author_name}</span>
+                                <span class="date">${formatDate(article.created_at)}</span>
+                                <span class="reading-time">${article.reading_time}</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        // Fetch articles from Supabase
+        async function fetchArticles(category = 'all', sortBy = 'newest') {
+            try {
+                showLoading();
+                
+                let query = supabase
+                    .from('articles')
+                    .select('*');
+                
+                // Apply category filter
+                if (category !== 'all') {
+                    query = query.eq('category', category);
+                }
+                
+                // Apply sorting
+                switch (sortBy) {
+                    case 'newest':
+                        query = query.order('created_at', { ascending: false });
+                        break;
+                    case 'oldest':
+                        query = query.order('created_at', { ascending: true });
+                        break;
+                    case 'popular':
+                        query = query.order('views', { ascending: false });
+                        break;
+                    case 'comments':
+                        query = query.order('comments_count', { ascending: false });
+                        break;
+                }
+                
+                const { data, error } = await query;
+                
+                if (error) throw error;
+                
+                filteredArticles = data || [];
+                totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
+                
+                renderArticles();
+                generatePageButtons();
+                updatePagination();
+                showContent();
+                
+            } catch (error) {
+                console.error('Error fetching articles:', error);
+                showError('Failed to load articles. Please try again later.');
+            }
+        }
+
+        // Render articles
+        function renderArticles() {
+            const startIndex = (currentPage - 1) * articlesPerPage;
+            const endIndex = startIndex + articlesPerPage;
+            const articlesToShow = filteredArticles.slice(startIndex, endIndex);
+            
+            articlesGrid.innerHTML = articlesToShow.map(generateArticleCard).join('');
+        }
+
+        // Generate pagination buttons
+        function generatePageButtons() {
+            pageBtnsContainer.innerHTML = '';
+            
+            if (totalPages > 0) {
+                pageBtnsContainer.innerHTML += `
+                    <button class="page-btn ${currentPage === 1 ? 'active' : ''}" data-page="1">1</button>
+                `;
+            }
+            
+            if (currentPage > 3) {
+                pageBtnsContainer.innerHTML += `<span class="ellipsis">...</span>`;
+            }
+            
+            for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
+                pageBtnsContainer.innerHTML += `
+                    <button class="page-btn ${currentPage === i ? 'active' : ''}" data-page="${i}">${i}</button>
+                `;
+            }
+            
+            if (currentPage < totalPages - 2) {
+                pageBtnsContainer.innerHTML += `<span class="ellipsis">...</span>`;
+            }
+            
+            if (totalPages > 1) {
+                pageBtnsContainer.innerHTML += `
+                    <button class="page-btn ${currentPage === totalPages ? 'active' : ''}" data-page="${totalPages}">${totalPages}</button>
+                `;
+            }
+            
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentPage = parseInt(btn.dataset.page);
+                    renderArticles();
+                    updatePagination();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
+
+        // Update pagination controls
+        function updatePagination() {
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+            
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.classList.toggle('active', parseInt(btn.dataset.page) === currentPage);
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    currentPage = 1;
+                    fetchArticles(button.dataset.category, sortSelect.value);
+                });
+            });
+            
+            sortSelect.addEventListener('change', () => {
+                const activeFilter = document.querySelector('.filter-btn.active');
+                fetchArticles(activeFilter.dataset.category, sortSelect.value);
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderArticles();
+                    updatePagination();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderArticles();
+                    updatePagination();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+            
+            retryButton.addEventListener('click', fetchArticles);
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchArticles();
+            setupEventListeners();
+        });
+    </script>
 </body>
 </html>
