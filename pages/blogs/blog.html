@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles - MyBlog</title>
+        <link rel="stylesheet" href="/src/assets/css/articles-card.css">
     <link rel="stylesheet" href="/src/assets/css/Header.css">
     <link rel="stylesheet" href="/src/assets/css/Footer.css">
-    <link rel="stylesheet" href="/src/assets/css/articles-card.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/src/assets/css/main.css">
+    <link rel="stylesheet" href="/src/assets/css/articles-card.cs">
+
 
 </head>
+
 <body>
     <!-- Header Section -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="/index.html"><img src="/u-info-logo.png" alt="Logo"/></a>
+                <a href="/index.html"><img src="/u-info-logo.png" alt="Logo" /></a>
             </div>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <label for="nav-toggle" class="nav-toggle-label">
@@ -50,7 +54,8 @@
                             <li><a href="../news/politics.html"><i class="fas fa-landmark"></i> Politics</a></li>
                             <li><a href="../news/sports.html"><i class="fas fa-football-ball"></i> Sports</a></li>
                             <li><a href="../news/entertainment.html"><i class="fas fa-film"></i> Entertainment</a></li>
-                            <li><a href="../news/finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a></li>
+                            <li><a href="../news/finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -137,14 +142,15 @@
             </div>
         </div>
     </main>
-        
+
     <!-- Footer Section -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section about">
                     <h3>About U-Info</h3>
-                    <p>Urban Info is a platform for sharing knowledge and ideas about technology, design, and lifestyle.</p>
+                    <p>Urban Info is a platform for sharing knowledge and ideas about technology, design, and lifestyle.
+                    </p>
                     <div class="socials">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -176,13 +182,15 @@
             </div>
         </div>
     </footer>
+
+
     <script type="module">
         // Import Supabase client
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
         // Initialize Supabase client
         const supabaseUrl = 'https://lfdcezmiiqnmfajlrcum.supabase.co';
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmZGNlem1paXFubWZhamxyY3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIyMjI5NDAsImV4cCI6MjA2Nzc5ODk0MH0.Mjn8qWWxonCwjE3pWNLElSADXZ4I3iyCdFv9l2KTSRY'; 
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmZGNlem1paXFubWZhamxyY3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIyMjI5NDAsImV4cCI6MjA2Nzc5ODk0MH0.Mjn8qWWxonCwjE3pWNLElSADXZ4I3iyCdFv9l2KTSRY';
         const supabase = createClient(supabaseUrl, supabaseKey);
 
         // DOM Elements
@@ -234,7 +242,7 @@
         function generateArticleCard(article) {
             const categoryClass = article.category.toLowerCase();
             const categoryName = article.category.charAt(0).toUpperCase() + article.category.slice(1);
-            
+
             return `
                 <article class="article-card" data-category="${categoryClass}" data-date="${article.created_at}">
                     <div class="article-image">
@@ -261,16 +269,16 @@
         async function fetchArticles(category = 'all', sortBy = 'newest') {
             try {
                 showLoading();
-                
+
                 let query = supabase
                     .from('articles')
                     .select('*');
-                
+
                 // Apply category filter
                 if (category !== 'all') {
                     query = query.eq('category', category);
                 }
-                
+
                 // Apply sorting
                 switch (sortBy) {
                     case 'newest':
@@ -286,19 +294,19 @@
                         query = query.order('comments_count', { ascending: false });
                         break;
                 }
-                
+
                 const { data, error } = await query;
-                
+
                 if (error) throw error;
-                
+
                 filteredArticles = data || [];
                 totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
-                
+
                 renderArticles();
                 generatePageButtons();
                 updatePagination();
                 showContent();
-                
+
             } catch (error) {
                 console.error('Error fetching articles:', error);
                 showError('Failed to load articles. Please try again later.');
@@ -310,47 +318,55 @@
             const startIndex = (currentPage - 1) * articlesPerPage;
             const endIndex = startIndex + articlesPerPage;
             const articlesToShow = filteredArticles.slice(startIndex, endIndex);
-            
+
             articlesGrid.innerHTML = articlesToShow.map(generateArticleCard).join('');
         }
 
         // Generate pagination buttons
         function generatePageButtons() {
             pageBtnsContainer.innerHTML = '';
-            
+
             if (totalPages > 0) {
                 pageBtnsContainer.innerHTML += `
                     <button class="page-btn ${currentPage === 1 ? 'active' : ''}" data-page="1">1</button>
                 `;
             }
-            
+
             if (currentPage > 3) {
                 pageBtnsContainer.innerHTML += `<span class="ellipsis">...</span>`;
             }
-            
+
             for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
                 pageBtnsContainer.innerHTML += `
                     <button class="page-btn ${currentPage === i ? 'active' : ''}" data-page="${i}">${i}</button>
                 `;
             }
-            
+
             if (currentPage < totalPages - 2) {
                 pageBtnsContainer.innerHTML += `<span class="ellipsis">...</span>`;
             }
-            
+
             if (totalPages > 1) {
                 pageBtnsContainer.innerHTML += `
                     <button class="page-btn ${currentPage === totalPages ? 'active' : ''}" data-page="${totalPages}">${totalPages}</button>
                 `;
             }
-            
-            document.querySelectorAll('.page-btn'���L�Bw��]at�Yu����7�����d�N��z�����|��:����0r�yrD�;��=�d� ����zE
-_#ג�GISs�Hv!�{=�R}\;&ɑ
-:3���%ஔ+1�?J�?�eS�nu�>�̐oI�����,=z[�Â^��@���������y�7�[؁N���݈U1���	%������LFa�t�9��FT��=�-)�O�a0��������p=���頸c��W�v�2k����O�;q���U��i�=:�tf�3־I���[��W�6*�u��J
-u�����@��gw9�XJM�l����bN���_�$3<�n|_���iU��!%,�~��������|�A�l�W˱�f�?�e=���J��s��T��Ia/��5O�����"���7i+Hwwe�þ]pK��p��ɢF?��l��?l^2�^�h�����
-Ag�v^S�Xҩ�UX[�����!6i�Z"����5G�i�����L�+1w$�/���
-f1;
-            
+
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentPage = parseInt(btn.dataset.page);
+                    renderArticles();
+                    updatePagination();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
+
+        // Update pagination controls
+        function updatePagination() {
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+
             document.querySelectorAll('.page-btn').forEach(btn => {
                 btn.classList.toggle('active', parseInt(btn.dataset.page) === currentPage);
             });
@@ -366,12 +382,12 @@ f1;
                     fetchArticles(button.dataset.category, sortSelect.value);
                 });
             });
-            
+
             sortSelect.addEventListener('change', () => {
                 const activeFilter = document.querySelector('.filter-btn.active');
                 fetchArticles(activeFilter.dataset.category, sortSelect.value);
             });
-            
+
             prevBtn.addEventListener('click', () => {
                 if (currentPage > 1) {
                     currentPage--;
@@ -380,7 +396,7 @@ f1;
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             });
-            
+
             nextBtn.addEventListener('click', () => {
                 if (currentPage < totalPages) {
                     currentPage++;
@@ -389,7 +405,7 @@ f1;
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             });
-            
+
             retryButton.addEventListener('click', fetchArticles);
         }
 
@@ -400,4 +416,5 @@ f1;
         });
     </script>
 </body>
+
 </html>

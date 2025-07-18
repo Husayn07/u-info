@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,31 +11,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
-        
+
         .articles-page {
             padding: 2rem 0;
             margin-top: 50px;
         }
-        
+
         .page-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
         }
-        
+
         /* Remove category filters since we're only showing tech */
         .category-filters {
             display: none;
         }
-        
+
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
-        
+
         .pagination {
             display: flex;
             justify-content: center;
@@ -42,37 +43,39 @@
             gap: 1rem;
             margin-top: 2rem;
         }
-        
+
         .page-numbers {
             display: flex;
             gap: 0.5rem;
         }
-        
-        .page-btn, .pagination-btn {
+
+        .page-btn,
+        .pagination-btn {
             padding: 0.5rem 1rem;
             border: 1px solid #ddd;
             background: white;
             cursor: pointer;
         }
-        
+
         .page-btn.active {
             background: #0066cc;
             color: white;
             border-color: #0066cc;
         }
-        
+
         .pagination-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
     </style>
 </head>
+
 <body>
     <!-- Header Section -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="/index.html"><img src="/u-info-logo.png" alt="Logo"/></a>
+                <a href="/index.html"><img src="/u-info-logo.png" alt="Logo" /></a>
             </div>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <label for="nav-toggle" class="nav-toggle-label">
@@ -106,7 +109,8 @@
                             <li><a href="../news/politics.html"><i class="fas fa-landmark"></i> Politics</a></li>
                             <li><a href="../news/sports.html"><i class="fas fa-football-ball"></i> Sports</a></li>
                             <li><a href="../news/entertainment.html"><i class="fas fa-film"></i> Entertainment</a></li>
-                            <li><a href="../news/finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a></li>
+                            <li><a href="../news/finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -173,14 +177,15 @@
             </div>
         </div>
     </main>
-        
+
     <!-- Footer Section -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section about">
                     <h3>About U-Info</h3>
-                    <p>Urban Info is a platform for sharing knowledge and ideas about technology, design, and lifestyle.</p>
+                    <p>Urban Info is a platform for sharing knowledge and ideas about technology, design, and lifestyle.
+                    </p>
                     <div class="socials">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -215,11 +220,11 @@
 
     <script type="module">
         import { articlesData } from '/src/assets/js/articlesData.js';
-        
-        document.addEventListener('DOMContentLoaded', function() {
+
+        document.addEventListener('DOMContentLoaded', function () {
             // Filter articles to only show tech category
             const techArticles = articlesData.filter(article => article.category === 'health');
-            
+
             // DOM Elements
             const articlesGrid = document.getElementById('articles-grid');
             const sortSelect = document.getElementById('sort-select');
@@ -240,7 +245,7 @@
             function generateArticleCard(article) {
                 const categoryClass = article.category.toLowerCase();
                 const categoryName = categoryClass.charAt(0).toUpperCase() + categoryClass.slice(1);
-                
+
                 return `
                     <article class="article-card" data-category="${categoryClass}" data-date="${article.date}">
                         <div class="article-image">
@@ -273,12 +278,12 @@
             function renderArticles() {
                 // Clear existing articles
                 articlesGrid.innerHTML = '';
-                
+
                 // Calculate pagination range
                 const startIndex = (currentPage - 1) * articlesPerPage;
                 const endIndex = startIndex + articlesPerPage;
                 const articlesToShow = filteredArticles.slice(startIndex, endIndex);
-                
+
                 // Generate and append article cards
                 articlesToShow.forEach(article => {
                     articlesGrid.innerHTML += generateArticleCard(article);
@@ -288,36 +293,36 @@
             // Generate pagination buttons
             function generatePageButtons() {
                 pageBtnsContainer.innerHTML = '';
-                
+
                 // Always show first page
                 pageBtnsContainer.innerHTML += `
                     <button class="page-btn ${currentPage === 1 ? 'active' : ''}" data-page="1">1</button>
                 `;
-                
+
                 // Show ellipsis if needed
                 if (currentPage > 3) {
                     pageBtnsContainer.innerHTML += `<span class="ellipsis">...</span>`;
                 }
-                
+
                 // Show current page and neighbors
                 for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
                     pageBtnsContainer.innerHTML += `
                         <button class="page-btn ${currentPage === i ? 'active' : ''}" data-page="${i}">${i}</button>
                     `;
                 }
-                
+
                 // Show ellipsis if needed
                 if (currentPage < totalPages - 2) {
                     pageBtnsContainer.innerHTML += `<span class="ellipsis">...</span>`;
                 }
-                
+
                 // Always show last page if there's more than one page
                 if (totalPages > 1) {
                     pageBtnsContainer.innerHTML += `
                         <button class="page-btn ${currentPage === totalPages ? 'active' : ''}" data-page="${totalPages}">${totalPages}</button>
                     `;
                 }
-                
+
                 // Add event listeners to page buttons
                 document.querySelectorAll('.page-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
@@ -338,7 +343,7 @@
                         btn.classList.add('active');
                     }
                 });
-                
+
                 // Enable/disable prev/next buttons
                 prevBtn.disabled = currentPage === 1;
                 nextBtn.disabled = currentPage === totalPages;
@@ -360,7 +365,7 @@
                             return 0;
                     }
                 });
-                
+
                 renderArticles();
             }
 
@@ -368,7 +373,7 @@
             sortSelect.addEventListener('change', () => {
                 sortArticles(sortSelect.value);
             });
-            
+
             prevBtn.addEventListener('click', () => {
                 if (currentPage > 1) {
                     currentPage--;
@@ -377,7 +382,7 @@
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             });
-            
+
             nextBtn.addEventListener('click', () => {
                 if (currentPage < totalPages) {
                     currentPage++;
@@ -396,4 +401,5 @@
         });
     </script>
 </body>
+
 </html>
