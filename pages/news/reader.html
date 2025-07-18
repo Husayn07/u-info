@@ -1,131 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article Reader - MyBlog</title>
-    <link rel="stylesheet" href="../src/assets/css/Header.css">
-    <link rel="stylesheet" href="../src/assets/css/Footer.css">
+    <link rel="stylesheet" href="/src/assets/css/Header.css">
+    <link rel="stylesheet" href="/src/assets/css/Footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/src/assets/css/Reader.css">
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
-
-        /* Reader-specific styles */
-        .article-reader {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-            margin-top: 100px;
-        }
-        
-        .article-header {
-            margin-bottom: 2rem;
-        }
-        
-        .article-category {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background-color: #f0f0f0;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            text-transform: capitalize;
-        }
-        
-        .article-title {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
-        }
-        
-        .article-meta {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            gap: 1rem;
-        }
-        
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .meta-details {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .author-name {
-            font-weight: bold;
-            margin-bottom: 0.3rem;
-        }
-        
-        .article-image {
-            width: 100%;
-            max-height: 500px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-        
-        .article-content {
-            line-height: 1.4;
-            font-size: 0.8rem;
-        }
-        
-        .article-content h2 {
-            margin: 2.5rem 0 1.5rem;
-            font-size: 1.8rem;
-            color: #222;
-        }
-        
-        .article-content p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .article-footer {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .article-stats {
-            color: #666;
-        }
-        
-        .back-to-articles {
-            display: inline-block;
-            margin-top: 2rem;
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 768px) {
-            .article-title {
-                font-size: 2rem;
-            }
-            
-            .article-image {
-                max-height: 300px;
-            }
-            
-            .article-reader {
-                padding: 1.5rem;
-            }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
     </style>
 </head>
+
 <body>
-    <!-- Same Header as articles.html -->
+
+    <!-- Header Section -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="../index.html"><img src="../u-info-logo.png"/></a>
+                <a href="/index.html"><img src="/u-info-logo.png" /></a>
             </div>
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <label for="nav-toggle" class="nav-toggle-label">
@@ -133,28 +28,50 @@
                 <span></span>
                 <span></span>
             </label>
-            
+
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="./articles.html">Articles</a></li>
+                    <li><a href="/index.html">Home</a></li>
+
+                    <!-- Blog Dropdown -->
                     <li class="dropdown">
-                        <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
+                        <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="./tech.html"><i class="fas fa-laptop-code"></i> Tech</a></li>
-                            <li><a href="./health.html"><i class="fas fa-heartbeat"></i> Health</a></li>
-                            <li><a href="./finance.html"><i class="fas fa-chart-line"></i> Finance</a></li>
-                            <li><a href="./crypto.html"><i class="fas fa-coins"></i> Crypto</a></li>
-                            <li><a href="./stories.html"><i class="fas fa-book"></i> Stories</a></li>
+                            <li><a href="/pages/blogs/blog.html"><i class="fas fa-users"></i> Blog</a></li>
+                            <li><a href="/pages/blogs/health.html"><i class="fas fa-heartbeat"></i> Health &
+                                    Wellness</a></li>
+                            <li><a href="/pages/blogs/tech.html"><i class="fas fa-laptop-code"></i> Tech &
+                                    Innovations</a></li>
+                            <li><a href="/pages/blogs/lifestyle.html"><i class="fas fa-leaf"></i> Lifestyles</a></li>
+                            <li><a href="/pages/blogs/stories.html"><i class="fas fa-book"></i> Stories</a></li>
+                            <li><a href="/pages/blogs/vacancy.html"><i class="fas fa-briefcase"></i>Job vacancies</a>
+                            </li>
                         </ul>
                     </li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+
+                    <!-- Categories Dropdown -->
+                    <li class="dropdown">
+                        <a href="#">News <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="news.html"><i class="fas fa-earth"></i> News</a></li>
+                            <li><a href="politics.html"><i class="fas fa-landmark"></i> Politics</a></li>
+                            <li><a href="sports.html"><i class="fas fa-football-ball"></i> Sports</a></li>
+                            <li><a href="entertainment.html"><i class="fas fa-film"></i> Entertainment</a></li>
+                            <li><a href="finance.html"><i class="fas fa-chart-line"></i> Finance & Business</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
                 </ul>
+
+                <!-- Search Box -->
                 <div class="search">
                     <input type="text" placeholder="Search...">
                     <button><i class="fas fa-search"></i></button>
                 </div>
+
+                <!-- Social Media Icons -->
                 <div class="header-socials">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -165,10 +82,23 @@
         </div>
     </header>
 
-    <!-- Article Content -->
-    <main class="article-reader" id="article-content">
-        <!-- Content will be loaded dynamically -->
-    </main>
+
+    <div class="container">
+        <div class="article-container">
+            <div id="loader" class="loader">
+                <i class="fas fa-spinner"></i>
+                <p>Loading Article Content...</p>
+            </div>
+
+            <div id="article-content" style="display: none;">
+                <!-- Article content will be inserted here -->
+            </div>
+
+            <div id="error-message" class="error-message" style="display: none;">
+                <!-- Error messages will be inserted here -->
+            </div>
+        </div>
+    </div>
 
     <!-- Same Footer as articles.html -->
     <footer class="footer">
@@ -176,7 +106,8 @@
             <div class="footer-content">
                 <div class="footer-section about">
                     <h3>About U-Info</h3>
-                    <p>Urban Info is a platform for sharing knowledge and ideas about technology, design, and lifestyle.</p>
+                    <p>Urban Info is a platform for sharing knowledge and ideas about technology, design, and lifestyle.
+                    </p>
                     <div class="socials">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -206,70 +137,149 @@
     </footer>
 
     <script type="module">
-        import { articlesData } from '../src/assets/js/articlesData.js';
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get article ID from URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const articleId = parseInt(urlParams.get('id'));
-            
-            // Find the article
-            const article = articlesData.find(item => item.id === articleId);
-            
-            const articleContainer = document.getElementById('article-content');
-            
-            if (!article) {
-                articleContainer.innerHTML = `
-                    <div class="article-not-found" style="text-align: center; padding: 2rem;">
-                        <h2>Article not found</h2>
-                        <p>The requested article could not be found.</p>
-                        <a href="./articles.html" class="back-to-articles">Back to Articles</a>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Format date
-            const formatDate = (dateString) => {
-                const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                return new Date(dateString).toLocaleDateString('en-US', options);
-            };
-            
-            // Generate article HTML
-            articleContainer.innerHTML = `
-                <article>
-                    <div class="article-header">
-                        <span class="article-category ${article.category}">${article.category}</span>
-                        <h1 class="article-title">${article.title}</h1>
+
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+        // Initialize Supabase
+        const supabaseUrl = 'https://lfdcezmiiqnmfajlrcum.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmZGNlem1paXFubWZhamxyY3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIyMjI5NDAsImV4cCI6MjA2Nzc5ODk0MH0.Mjn8qWWxonCwjE3pWNLElSADXZ4I3iyCdFv9l2KTSRY'; // Shortened for security
+        const supabase = createClient(supabaseUrl, supabaseKey);
+
+
+        // Format date for display
+        const formatDate = (dateString) => {
+            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        };
+
+        // Show loading state
+        function showLoading() {
+            document.getElementById("loader").style.display = "block";
+            document.getElementById("article-content").style.display = "none";
+            document.getElementById("error-message").style.display = "none";
+        }
+
+        // Show content
+        function showContent() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("article-content").style.display = "block";
+            document.getElementById("error-message").style.display = "none";
+        }
+
+        // Show error
+        function showError(message) {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("article-content").style.display = "none";
+            const errorDiv = document.getElementById("error-message");
+            errorDiv.style.display = "block";
+            errorDiv.innerHTML = `
+                <h3>Error Loading Article</h3>
+                <p>${message}</p>
+                <div style="margin-top: 25px;">
+                    <button onclick="window.location.reload()" class="back-to-articles">
+                        <i class="fas fa-redo"></i> Try Again
+                    </button>
+                    <a href="/" class="back-to-articles" style="margin-left: 15px; background: #4a5568;">
+                        <i class="fas fa-home"></i> Return Home
+                    </a>
+                </div>
+            `;
+        }
+
+        // Fetch and display article
+        async function fetchArticle(articleId) {
+            showLoading();
+
+            try {
+                // Fetch the article
+                const { data: article, error } = await supabase
+                    .from('news')
+                    .select('*')
+                    .eq('id', articleId)
+                    .single();
+
+                if (error) throw error;
+
+                if (!article) {
+                    showError('The requested article could not be found.');
+                    return;
+                }
+
+                // Generate article HTML
+                document.getElementById('article-content').innerHTML = `
+                    <article>
+                        <div class="article-header">
+                            <span class="article-category">${article.category || 'General'}</span>
+                            <h1 class="article-title">${article.title}</h1>
+                            
+                            <div class="article-meta">
+                                <img src="${article.author_avatar || 'https://i.pravatar.cc/150?img=32'}" 
+                                     alt="${article.author_name || 'Author'}" 
+                                     class="author-avatar">
+                                <div class="meta-details">
+                                    <span class="author-name">${article.author_name || 'Unknown Author'}</span>
+                                    <span>Published on ${formatDate(article.created_at || new Date())} • ${article.reading_time || '5 min'} read</span>
+                                </div>
+                            </div>
+                            
+                            <img src="${article.image_url || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'}" 
+                                 alt="${article.title}" 
+                                 class="article-image">
+                        </div>
                         
-                        <div class="article-meta">
-                            <img src="${article.author.avatar}" alt="${article.author.name}" class="author-avatar">
-                            <div class="meta-details">
-                                <span class="author-name">${article.author.name}</span>
-                                <span>${formatDate(article.date)} · ${article.readingTime}</span>
+                        <div class="article-content">
+                            ${article.content || `
+                                <p>This article appears to be missing content. Our team is working to resolve this issue.</p>
+                                <p>Please check back later or browse our other articles.</p>
+                            `}
+                            
+                            <div class="tag-list">
+                                <span class="tag">${article.category || 'General'}</span>
+                                <span class="tag">Technology</span>
+                                <span class="tag">Trending</span>
+                                <span class="tag">Analysis</span>
                             </div>
                         </div>
                         
-                        <img src="${article.imageUrl}" alt="${article.title}" class="article-image">
-                    </div>
-                    
-                    <div class="article-content">
-                        ${article.content || '<p>Content not available</p>'}
-                    </div>
-                    
-                    <div class="article-footer">
-                        <div class="article-stats">
-                            <span>${article.views.toLocaleString()} views</span> · 
-                            <span>${article.comments} comments</span>
+                        <div class="article-footer">
+                            <div class="article-stats">
+                                <span><i class="fas fa-eye"></i> ${article.views ? article.views.toLocaleString() : '0'} views</span>
+                                <span><i class="fas fa-comment"></i> ${article.comments_count || '0'} comments</span>
+                                <span><i class="fas fa-heart"></i> ${article.likes || '0'} likes</span>
+                            </div>
+                            
+                            <div>
+                                <a href="./news.html" class="back-to-articles">
+                                    <i class="fas fa-arrow-left"></i> Back to News
+                                </a>
+                                
+                            </div>
                         </div>
-                    </div>
-                    
-                    <a href="./articles.html" class="back-to-articles">
-                        <i class="fas fa-arrow-left"></i> Back to all articles
-                    </a>
-                </article>
-            `;
+                    </article>
+                `;
+
+                showContent();
+
+            } catch (error) {
+                console.error('Error fetching article:', error);
+                showError('Failed to load article. Please try again later.');
+            }
+        }
+
+        // On page load
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get article ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+
+            if (articleId) {
+                fetchArticle(articleId);
+            } else {
+                showError('No article ID specified in URL.<br>Please select an article from the homepage.');
+            }
         });
     </script>
+
 </body>
+
 </html>

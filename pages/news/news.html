@@ -94,7 +94,7 @@
 
             <!-- Category Filters -->
             <div class="category-filters">
-                <button class="filter-btn active" data-category="news">News</button>
+                <button class="filter-btn active" data-category="all">News</button>
                 <button class="filter-btn" data-category="politics">Politics</button>
                 <button class="filter-btn" data-category="finance">Finance</button>
                 <button class="filter-btn" data-category="sports">Sports</button>
@@ -262,7 +262,7 @@
                 showLoading();
                 
                 let query = supabase
-                    .from('articles')
+                    .from('news')
                     .select('*');
                 
                 // Apply category filter

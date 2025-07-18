@@ -13,11 +13,6 @@
     </style>
 </head>
 <body>
-    <!-- Loading Animation -->
-    <div id="loader">
-        <div class="spinner"></div>
-    </div>
-
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -70,11 +65,6 @@
                     <button><i class="fas fa-search"></i></button>
                 </div>
 
-                <!-- Theme Toggle Button -->
-                <button id="theme-toggle" aria-label="Toggle Theme" class="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-
                 <!-- Social Media Icons -->
                 <div class="header-socials">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -87,9 +77,24 @@
     </header>
 
     <!-- Article Content -->
-    <main class="article-reader" id="article-content">
-        <!-- Content will be loaded dynamically -->
-    </main>
+   
+    <div class="container">
+        <div class="article-container">
+            <div id="loader" class="loader">
+                <i class="fas fa-spinner"></i>
+                <p>Loading Article Content...</p>
+            </div>
+            
+            <div id="article-content" style="display: none;">
+                <!-- Article content will be inserted here -->
+            </div>
+            
+            <div id="error-message" class="error-message" style="display: none;">
+                <!-- Error messages will be inserted here -->
+            </div>
+        </div>
+    </div>
+
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -131,102 +136,146 @@
     </footer>
 
     <script type="module">
-        import { articlesData } from '/src/assets/js/articlesData.js';
+
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+        // Initialize Supabase
+            const supabaseUrl = 'https://lfdcezmiiqnmfajlrcum.supabase.co';
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmZGNlem1paXFubWZhamxyY3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIyMjI5NDAsImV4cCI6MjA2Nzc5ODk0MH0.Mjn8qWWxonCwjE3pWNLElSADXZ4I3iyCdFv9l2KTSRY'; // Shortened for security
+            const supabase = createClient(supabaseUrl, supabaseKey);    
         
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hide loader
+        
+        // Format date for display
+        const formatDate = (dateString) => {
+            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        };
+        
+        // Show loading state
+        function showLoading() {
+            document.getElementById("loader").style.display = "block";
+            document.getElementById("article-content").style.display = "none";
+            document.getElementById("error-message").style.display = "none";
+        }
+        
+        // Show content
+        function showContent() {
             document.getElementById("loader").style.display = "none";
+            document.getElementById("article-content").style.display = "block";
+            document.getElementById("error-message").style.display = "none";
+        }
+        
+        // Show error
+        function showError(message) {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("article-content").style.display = "none";
+            const errorDiv = document.getElementById("error-message");
+            errorDiv.style.display = "block";
+            errorDiv.innerHTML = `
+                <h3>Error Loading Article</h3>
+                <p>${message}</p>
+                <div style="margin-top: 25px;">
+                    <button onclick="window.location.reload()" class="back-to-articles">
+                        <i class="fas fa-redo"></i> Try Again
+                    </button>
+                    <a href="/" class="back-to-articles" style="margin-left: 15px; background: #4a5568;">
+                        <i class="fas fa-home"></i> Return Home
+                    </a>
+                </div>
+            `;
+        }
+        
+        // Fetch and display article
+        async function fetchArticle(articleId) {
+            showLoading();
             
-            // Get article ID from URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const articleId = parseInt(urlParams.get('id'));
-            
-            // Find the article
-            const article = articlesData.find(item => item.id === articleId);
-            
-            const articleContainer = document.getElementById('article-content');
-            
-            if (!article) {
-                articleContainer.innerHTML = `
-                    <div class="article-not-found" style="text-align: center; padding: 2rem;">
-                        <h2>Article not found</h2>
-                        <p>The requested article could not be found.</p>
-                        <a href="/pages/blogs/blog.html" class="back-to-articles">Back to Articles</a>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Format date
-            const formatDate = (dateString) => {
-                const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                return new Date(dateString).toLocaleDateString('en-US', options);
-            };
-            
-            // Generate article HTML
-            articleContainer.innerHTML = `
-                <article>
-                    <div class="article-header">
-                        <span class="article-category ${article.category}">${article.category}</span>
-                        <h1 class="article-title">${article.title}</h1>
+            try {
+                // Fetch the article
+                const { data: article, error } = await supabase
+                    .from('articles')
+                    .select('*')
+                    .eq('id', articleId)
+                    .single();
+                
+                if (error) throw error;
+                
+                if (!article) {
+                    showError('The requested article could not be found.');
+                    return;
+                }
+                
+                // Generate article HTML
+                document.getElementById('article-content').innerHTML = `
+                    <article>
+                        <div class="article-header">
+                            <span class="article-category">${article.category || 'General'}</span>
+                            <h1 class="article-title">${article.title}</h1>
+                            
+                            <div class="article-meta">
+                                <img src="${article.author_avatar || 'https://i.pravatar.cc/150?img=32'}" 
+                                     alt="${article.author_name || 'Author'}" 
+                                     class="author-avatar">
+                                <div class="meta-details">
+                                    <span class="author-name">${article.author_name || 'Unknown Author'}</span>
+                                    <span>Published on ${formatDate(article.created_at || new Date())} • ${article.reading_time || '5 min'} read</span>
+                                </div>
+                            </div>
+                            
+                            <img src="${article.image_url || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'}" 
+                                 alt="${article.title}" 
+                                 class="article-image">
+                        </div>
                         
-                        <div class="article-meta">
-                            <img src="${article.author.avatar}" alt="${article.author.name}" class="author-avatar">
-                            <div class="meta-details">
-                                <span class="author-name">${article.author.name}</span>
-                                <span>${formatDate(article.date)} · ${article.readingTime}</span>
+                        <div class="article-content">
+                            ${article.content || `
+                                <p>This article appears to be missing content. Our team is working to resolve this issue.</p>
+                                <p>Please check back later or browse our other articles.</p>
+                            `}
+                            
+                            <div class="tag-list">
+                                <span class="tag">${article.category || 'General'}</span>
+                                <span class="tag">Technology</span>
+                                <span class="tag">Trending</span>
+                                <span class="tag">Analysis</span>
                             </div>
                         </div>
                         
-                        <img src="${article.imageUrl}" alt="${article.title}" class="article-image">
-                    </div>
-                    
-                    <div class="article-content">
-                        ${article.content || '<p>Content not available</p>'}
-                    </div>
-                    
-                    <div class="article-footer">
-                        <div class="article-stats">
-                            <span>${article.views.toLocaleString()} views</span> · 
-                            <span>${article.comments} comments</span>
+                        <div class="article-footer">
+                            <div class="article-stats">
+                                <span><i class="fas fa-eye"></i> ${article.views ? article.views.toLocaleString() : '0'} views</span>
+                                <span><i class="fas fa-comment"></i> ${article.comments_count || '0'} comments</span>
+                                <span><i class="fas fa-heart"></i> ${article.likes || '0'} likes</span>
+                            </div>
+                            
+                            <div>
+                                <a href="./blog.html" class="back-to-blog">
+                                    <i class="fas fa-arrow-left"></i> Back to News
+                                </a>
+                                
+                            </div>
                         </div>
-                    </div>
-                    
-                    <a href="/pages/blogs/blog.html" class="back-to-articles">
-                        <i class="fas fa-arrow-left"></i> Back to all articles
-                    </a>
-                </article>
-            `;
-        });
-    </script>
-
-    <!-- Theme Toggle Script -->
-    <script>
-        const toggleButton = document.getElementById("theme-toggle");
-        const body = document.body;
-
-        // Save theme to localStorage
-        function setTheme(theme) {
-            if (theme === 'dark') {
-                body.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-                toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                body.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-                toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+                    </article>
+                `;
+                
+                showContent();
+                
+            } catch (error) {
+                console.error('Error fetching article:', error);
+                showError('Failed to load article. Please try again later.');
             }
         }
-
-        // Load theme on page load
-        window.addEventListener("DOMContentLoaded", () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            setTheme(savedTheme);
-        });
-
-        toggleButton.addEventListener("click", () => {
-            const isDark = body.classList.toggle("dark");
-            setTheme(isDark ? 'dark' : 'light');
+        
+        // On page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get article ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+            
+            if (articleId) {
+                fetchArticle(articleId);
+            } else {
+                showError('No article ID specified in URL.<br>Please select an article from the homepage.');
+            }
         });
     </script>
 </body>
